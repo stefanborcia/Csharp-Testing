@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing Arithmetic", "Testing C# NUNit\Testing Arithmetic.csproj", "{2F87F1E6-FB97-4732-8EB7-F852A1559EF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing Palindrome Word", "Testing Palindrome Word\Testing Palindrome Word.csproj", "{70D9C958-C9F5-4F7D-9C7B-12FA9AF6F87E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F87F1E6-FB97-4732-8EB7-F852A1559EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F87F1E6-FB97-4732-8EB7-F852A1559EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F87F1E6-FB97-4732-8EB7-F852A1559EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F87F1E6-FB97-4732-8EB7-F852A1559EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D9C958-C9F5-4F7D-9C7B-12FA9AF6F87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D9C958-C9F5-4F7D-9C7B-12FA9AF6F87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D9C958-C9F5-4F7D-9C7B-12FA9AF6F87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D9C958-C9F5-4F7D-9C7B-12FA9AF6F87E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8A75733-7C58-44EC-AD5D-AD17C196A75B}
+	EndGlobalSection
+EndGlobal
