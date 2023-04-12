@@ -1,8 +1,6 @@
-using Testing_Palindrome_Word;
-
-namespace Palindrome.Services.Tests;
-
 using NUnit.Framework;
+
+namespace Testing_Palindrome_Word;
 
 public class Tests
 {
@@ -19,14 +17,14 @@ public class Tests
     [TestCase("bird rib")]
     [TestCase("Borrow or rob")]
     [TestCase("Never odd or even")]
-    [TestCase("Won’t lovers revolt now")]
+    [TestCase("Won’t l4overs revolt now")]
     [TestCase("Don’t nod")]
     [TestCase("deified")]
     [TestCase("repaper")]
 
     public void IsPalindrome(string word)
     {
-        var r = _palindromeService!.IsPalindrome(word);
+        var r = _palindromeService!.IsPalindromeWord(word);
         Assert.AreEqual(r, true);
     }
 }
