@@ -8,7 +8,7 @@ namespace FlightTest
     public class FlighSpecification
     {
         [Fact]
-        public void Booking_reduces_the_number_of_seats()
+        public void Booking_reduces_the_number_of_seats1()
         {
             var flight = new Flight(seatCapacity: 3);
 
@@ -16,6 +16,26 @@ namespace FlightTest
 
             flight.RemainingNumberOfSeats.Should().Be(2);
         }
+        [Fact]
+        public void Booking_reduces_the_number_of_seats2()
+        {
+            var flight = new Flight(seatCapacity: 10);
+
+            flight.Book("stefan.borcia@outlook.com", 6);
+
+            flight.RemainingNumberOfSeats.Should().Be(4);
+        }
+        
+        [Fact]
+        public void Booking_reduces_the_number_of_seats3()
+        {
+            var flight = new Flight(seatCapacity: 6);
+
+            flight.Book("stefan.borcia@outlook.com", 3);
+
+            flight.RemainingNumberOfSeats.Should().Be(3);
+        }
+
 
         [Fact]
 
