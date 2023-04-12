@@ -7,35 +7,19 @@ namespace FlightTest
 {
     public class FlighSpecification
     {
-        [Fact]
-        public void Booking_reduces_the_number_of_seats1()
+        [Theory]
+        [InlineData(3,1,2)]  // Remove duplicate Code
+        [InlineData(6,3,3)]
+        [InlineData(8,3,5)]
+        [InlineData(10,6,4)]
+        public void Booking_reduces_the_number_of_seats1(int seatCapacity, int numberOfSeats, int remainingNumberOfSeats)
         {
-            var flight = new Flight(seatCapacity: 3);
+            var flight = new Flight(seatCapacity: seatCapacity);
 
-            flight.Book("stefan.borcia@outlook.com", 1);
+            flight.Book("stefan.borcia@outlook.com", numberOfSeats);
 
-            flight.RemainingNumberOfSeats.Should().Be(2);
+            flight.RemainingNumberOfSeats.Should().Be(remainingNumberOfSeats);
         }
-        [Fact]
-        public void Booking_reduces_the_number_of_seats2()
-        {
-            var flight = new Flight(seatCapacity: 10);
-
-            flight.Book("stefan.borcia@outlook.com", 6);
-
-            flight.RemainingNumberOfSeats.Should().Be(4);
-        }
-        
-        [Fact]
-        public void Booking_reduces_the_number_of_seats3()
-        {
-            var flight = new Flight(seatCapacity: 6);
-
-            flight.Book("stefan.borcia@outlook.com", 3);
-
-            flight.RemainingNumberOfSeats.Should().Be(3);
-        }
-
 
         [Fact]
 
