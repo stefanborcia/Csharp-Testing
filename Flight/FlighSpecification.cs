@@ -1,5 +1,6 @@
 using Xunit;
 using System;
+using System.Net.NetworkInformation;
 using Domain;
 using FluentAssertions;
 
@@ -33,7 +34,15 @@ namespace FlightTest
 
             // Then
             error.Should().BeOfType<OverbookingError>();
+        }
 
+        [Fact]
+
+        public void Books_flights_successfully()
+        {
+            var flight = new Flight(seatCapacity: 3);
+            var error = flight.Book("stefan.borcia@outlook.com", 1);
+            error.Should().BeNull();
         }
     }
 }
