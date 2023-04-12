@@ -1,7 +1,7 @@
 ﻿namespace Domain
 {
-    public class Class1
+    public class Calculator
     {
-
+        public int Sum(int x, int y) => x + y;
     }
 }
