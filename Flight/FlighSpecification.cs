@@ -23,7 +23,6 @@ namespace FlightTest
         }
 
         [Fact]
-
         public void Avoids_overbooking()
         {
             // Given
@@ -37,12 +36,45 @@ namespace FlightTest
         }
 
         [Fact]
-
         public void Books_flights_successfully()
         {
             var flight = new Flight(seatCapacity: 3);
             var error = flight.Book("stefan.borcia@outlook.com", 1);
             error.Should().BeNull();
+        }
+
+        [Fact]
+        public void Remembers_bookings()
+        {
+            var flight = new Flight(seatCapacity: 150);
+
+            flight.Book(passengerEmail: "stefan@outlook.com", numberOfSeats: 4);
+
+            flight.BookingList.Should().ContainEquivalentOf(new Booking("stefan@outlook.com", 4));
+        }
+
+        [Theory]
+        [InlineData(3,1,1,3)]
+        [InlineData(4,2,2,4)]
+        [InlineData(7,5,4,6)]
+
+
+        public void Canceling_bookings_frees_up_the_seats(
+            int initialCapacity, 
+            int numberOfSeatsToBook,
+            int numberOfSeatsToCancel,
+            int remainingNumberOfSeats
+            )
+        {
+            // Given
+            var flight = new Flight(initialCapacity);
+            flight.Book(passengerEmail: "s@g.com", numberOfSeats: numberOfSeatsToBook);
+            
+            // When
+            flight.CancelBooking(passengerEmail: "s@g.com", numberOfSeats: numberOfSeatsToCancel);
+
+            // Then
+            flight.RemainingNumberOfSeats.Should().Be(remainingNumberOfSeats);
         }
     }
 }

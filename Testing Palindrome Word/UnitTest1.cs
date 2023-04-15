@@ -17,7 +17,7 @@ public class Tests
     [TestCase("bird rib")]
     [TestCase("Borrow or rob")]
     [TestCase("Never odd or even")]
-    [TestCase("Won’t l4overs revolt now")]
+    [TestCase("Won’tlovtuters revolt now")]
     [TestCase("Don’t nod")]
     [TestCase("deified")]
     [TestCase("repaper")]

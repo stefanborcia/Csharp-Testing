@@ -9,7 +9,10 @@ using Domain;
 namespace Domain
 {
     public class Flight
-    {
+    { 
+        List<Booking> bookingList = new();
+        public IEnumerable<Booking> BookingList => bookingList;
+
         public int RemainingNumberOfSeats { get; set; }
         public Flight(int seatCapacity)
         {
@@ -24,7 +27,14 @@ namespace Domain
             }
 
             RemainingNumberOfSeats -= numberOfSeats;
+
+            bookingList.Add(new Booking(passengerEmail,numberOfSeats));
             return null;
+        }
+
+        public void CancelBooking(string passengerEmail, int numberOfSeats)
+        {
+            RemainingNumberOfSeats += numberOfSeats;
         }
     }
 }
