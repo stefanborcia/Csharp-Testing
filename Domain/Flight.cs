@@ -9,14 +9,21 @@ using Domain;
 namespace Domain
 {
     public class Flight
-    { 
+    {
         List<Booking> bookingList = new();
         public IEnumerable<Booking> BookingList => bookingList;
 
         public int RemainingNumberOfSeats { get; set; }
+
+        public Guid Id { get; }
+
+        [Obsolete] // Needed By EntityFramework
+
+        Flight() { }
+
         public Flight(int seatCapacity)
         {
-            RemainingNumberOfSeats =seatCapacity;
+            RemainingNumberOfSeats = seatCapacity;
         }
 
         public object? Book(string passengerEmail, int numberOfSeats)
@@ -28,7 +35,7 @@ namespace Domain
 
             RemainingNumberOfSeats -= numberOfSeats;
 
-            bookingList.Add(new Booking(passengerEmail,numberOfSeats));
+            bookingList.Add(new Booking(passengerEmail, numberOfSeats));
             return null;
         }
 

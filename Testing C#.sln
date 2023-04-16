@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flight", "Flight\Flight.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplication.Tests", "Aplication.Tests\Aplication.Tests.csproj", "{039E3023-6A39-49BA-B49E-6096DC5AC1DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{C3B01A64-C774-484D-AC30-4AA34582B65C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{039E3023-6A39-49BA-B49E-6096DC5AC1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{039E3023-6A39-49BA-B49E-6096DC5AC1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{039E3023-6A39-49BA-B49E-6096DC5AC1DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B01A64-C774-484D-AC30-4AA34582B65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B01A64-C774-484D-AC30-4AA34582B65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B01A64-C774-484D-AC30-4AA34582B65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B01A64-C774-484D-AC30-4AA34582B65C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
