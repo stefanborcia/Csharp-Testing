@@ -23,6 +23,16 @@ namespace Aplication
         {
             return Entities.Flights.Find(flightId).BookingList.Select(booking => new BookingRm(booking.Email, booking.NumberOfSeats));
         }
+
+        public void CancelBooking(CancelBookingDto cancelBookingDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetRemainingNumberOfSeatsFor(Guid flightId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
