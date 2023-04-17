@@ -11,7 +11,6 @@ namespace Data
                 
         }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Flight>().HasKey(f => f.Id);

@@ -11,24 +11,25 @@ namespace Aplication.Tests
 {
     public class FlightAplicationSpecifications
     {
-        readonly Entities entities = new Entities(new DbContextOptionsBuilder<Entities>().UseInMemoryDatabase("Flights").Options); // use DB
+        readonly Entities _entities = new Entities(new DbContextOptionsBuilder<Entities>().UseInMemoryDatabase("Flights").Options); // use DB
 
         private readonly BookingService bookingService;
 
         public FlightAplicationSpecifications()
         {
-           bookingService = new BookingService(entities: entities);
+           bookingService = new BookingService(entities: _entities);
         }
 
         [Theory]
-        [InlineData("i@s.com",3)]
-        [InlineData("ids@s.com",1)]
-        public void Books_flights(string passengerEmail, int numberOfSeats)
+        [InlineData("i@gmail.com", 2)]
+        [InlineData("i@gmail.com", 2)]
+        // public void Given_a_flight_When_I_book_the_flight_Then_the_flight_should_contain_my_booking(string passengerEmail, int numberOfSeats) //Based on GTW
+        public void Remembers_bookings(string passengerEmail, int numberOfSeats)
         {
 
             var flight = new Flight(3);
 
-            entities.Flights.Add(flight);
+            _entities.Flights.Add(flight);
 
             bookingService.Book(new BookDto(flightId: flight.Id, passengerEmail, numberOfSeats));
 
@@ -36,13 +37,15 @@ namespace Aplication.Tests
                 new BookingRm(passengerEmail, numberOfSeats));
         }
 
-        [Fact]
-
-        public void Cancels_booking()
+        [Theory]
+        [InlineData(3)]
+        [InlineData(10)]
+        public void Frees_up_seats_after_booking(int initialCapacity)
         {
             // Given
-            var flight = new Flight(3);
-            entities.Flights.Add(flight);
+            var flight = new Flight(initialCapacity);
+            _entities.Flights.Add(flight); 
+            _entities.SaveChanges();
 
             bookingService.Book(new BookDto(flightId: flight.Id, passengerEmail: "i@gmail.com", numberOfSeats: 2));
             // When
@@ -54,7 +57,7 @@ namespace Aplication.Tests
                 
                 );
             // Then
-            bookingService.GetRemainingNumberOfSeatsFor(flight.Id).Should().Be(3);
+            bookingService.GetRemainingNumberOfSeatsFor(flight.Id).Should().Be(initialCapacity);
         }
     }
 };
