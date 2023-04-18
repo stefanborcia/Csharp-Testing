@@ -45,13 +45,12 @@ namespace Aplication.Tests
             // Given
             var flight = new Flight(initialCapacity);
             _entities.Flights.Add(flight); 
-            _entities.SaveChanges();
 
             bookingService.Book(new BookDto(flightId: flight.Id, passengerEmail: "i@gmail.com", numberOfSeats: 2));
             // When
             bookingService.CancelBooking(
                 
-                new CancelBookingDto(flightId :Guid.NewGuid(),
+                new CancelBookingDto(flightId :flight.Id,
                 passengerEmail: "i@gmail.com",
                     numberOfSeats: 2)
                 
